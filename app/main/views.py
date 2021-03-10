@@ -1,5 +1,6 @@
-from flask import render_template
-from app import app
+from flask import render_template,request,redirect,url_for
+from . import main
+from ..models import Lease
 
 # Views
 @app.route('/')
@@ -10,7 +11,7 @@ def index():
     '''
     return render_template('index.html')
 
-@app.route('/lease/<int:lease_id>')
+@main.route('/lease/<int:lease_id>')
 def lease(lease_id):
 
     '''
@@ -19,7 +20,7 @@ def lease(lease_id):
     title = f'lease this property {lease_id}'
     return render_template('lease.html',title = title)
 
-@app.route('/lease/<int:lease_id>')
+@main.route('/lease/<int:lease_id>')
 def search_lease(lease_id):
 
     '''
