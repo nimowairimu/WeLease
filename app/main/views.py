@@ -11,6 +11,7 @@ def index():
     '''
     return render_template('index.html')
 
+
 @main.route('/lease/<int:lease_id>')
 def lease(lease_id):
 
