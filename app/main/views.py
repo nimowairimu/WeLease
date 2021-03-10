@@ -3,7 +3,7 @@ from . import main
 from ..models import Lease
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''

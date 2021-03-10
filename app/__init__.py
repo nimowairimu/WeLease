@@ -1,16 +1,28 @@
 from flask import Flask
-from .config import DevConfig
 from flask_bootstrap import Bootstrap
+from config import config_options
+from flask_sqlalchemy import SQLAlchemy 
+from datetime import datetime
 
-# Initializing application
-app = Flask(__name__)
+bootstrap = Bootstrap()
 
-# Setting up configuration
-app.config.from_object(DevConfig)
-app.config.from_pyfile("config.py")
+def create_app(config_name):
 
-# Initializing Flask Extensions
-bootstrap = Bootstrap(app)
+    app = Flask(__name__)
 
-from app import views
-from app import error
+    # Creating the app configurations
+    app.config.from_object(config_options[config_name])
+
+    # Initializing flask extensions
+    bootstrap.init_app(app)
+
+    # Registering the blueprint
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+    # Will add the views and forms
+    from app.main import views
+    from app.main import errors
+
+    return app
+
