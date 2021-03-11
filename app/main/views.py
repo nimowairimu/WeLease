@@ -1,6 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from . import main
-# from ..models import Lease
+from flask_login import login_required
+from ..models import Lease
 
 # Views
 @main.route('/')
@@ -9,7 +10,9 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    return render_template('index.html')
+    key = bytes('key', encoding='utf-8')
+    title = 'Home - Welcome to The best Movie Review Website Online'
+    return render_template('index.html',title = title )
 
 
 @main.route('/lease',methods=['POST','GET'])
