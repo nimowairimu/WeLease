@@ -4,13 +4,13 @@ from flask_login import login_required
 from ..models import Lease
 
 # Views
-@main.route('/')
-def index():
+@main.route('/' ,methods=['GET'])
+def save():
 
     '''
     View root page function that returns the index page and its data
     '''
-    key = bytes('key', encoding='utf-8')
+    
     title = 'Home - Welcome to The best Movie Review Website Online'
     return render_template('index.html',title = title )
 

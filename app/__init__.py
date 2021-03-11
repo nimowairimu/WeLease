@@ -19,7 +19,7 @@ def create_app(config_name):
 
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lease.db'
+   
 
 
     # Initializing flask extensions
@@ -34,9 +34,9 @@ def create_app(config_name):
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
 
 
-    # Will add the views and forms
-    from app.main import views
-    from app.main import errors
+    # # Will add the views and forms
+    # from app.main import views
+    # from app.main import errors
 
     return app
 
