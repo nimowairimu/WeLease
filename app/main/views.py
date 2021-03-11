@@ -18,18 +18,18 @@ def lease():
     '''
     View movie page function that returns the lease details page and its data
     '''
-    if request.method == "POST":
-        submit_lease = request.form[name]
-        new_lease = Lease(name=submit_lease)
-        db,session.add(new_lease)
-        db.session.commit()
-        return redirect ('/')
+    # if request.method == "POST":
+    #     submit_lease = request.form[name]
+    #     new_lease = Lease(name=submit_lease)
+    #     db,session.add(new_lease)
+    #     db.session.commit()
+    #     return redirect ('')
        
-    else:
-        return "You clicked this ..."
-    title = "My lease list "
-    # lease = Lease.query.order_by(Lease.date_added)
-    return render_template('lease.html',title = title)
+    # else:
+    #     return "You clicked this ..."
+    # title = "My lease list "
+    # # lease = Lease.query.order_by(Lease.date_added)
+    return render_template('lease.html')
 
 @main.route('/lease/<int:lease_id>')
 def search_lease(lease_id):

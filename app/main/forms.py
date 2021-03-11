@@ -1,1 +1,2 @@
-class LeaseForm(flask)
+class LeaseForm(flask):
+    
