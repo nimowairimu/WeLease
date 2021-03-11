@@ -1,4 +1,4 @@
-#!/home/nimo/Documents/WeLease/virtual/bin/python
+#!/home/nimo/Documents/WeLease/virtual/bin/python3.8
 # -*- coding: utf-8 -*-
 import re
 import sys
