@@ -5,12 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from flask_login import LoginManager
 from flask_mail import Mail
+from flask_uploads import UploadSet,configure_uploads,IMAGES
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 
-
+photos = UploadSet('photos',IMAGES)
 bootstrap = Bootstrap()
 db = SQLAlchemy()
 mail = Mail()
@@ -36,6 +37,8 @@ def create_app(config_name):
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
 
+    # configure UploadSet
+    configure_uploads(app,photos)
 
     # # Will add the views and forms
     # from app.main import views

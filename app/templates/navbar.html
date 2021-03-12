@@ -1,29 +1,30 @@
-<nav class="mb-2 navbar navbar-expand-lg navbar bg-dark ">
-    <div class="container-fluid">
+<nav class="mb-2 navbar navbar-expand-lg navbar bg-success ">
+    <div class="container-fluid" style="font-family: Domine;font-size: 20px;">
+        <img src="../static/images/icona.png" height="100px" alt="">
         <div class="navbar-header">
+            
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
             </button>
-            <a style="color: white;" class="navbar-brand" href="/"><i class="far fa-farm"></i>WeLease </a>
+            <a style="color: white; font-family:Cinzel ;font-size: 60px;" class="navbar-brand" href="/">WeLease </a>
+            
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li ><a style="color: white; " href="/">Home</a></li>
-        </div>
-        <div class="nav navbar-nav">
-            <li><a style="color: white;" href="/">About</a></li>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a style="color: white;" href="./lease.html">View properties</a></li>
+                <li ><a style="color: white; " href="{{url_for('main.index')}}">Home</a></li>
+       
+                <li><a style="color: white;" href="{{url_for('main.home')}}">View properties</a></li>
+                
+                <li><a style="color: white;" href="{{url_for('main.lease_mine')}}">Lease My property </a></li>
         </div>
         <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}
-            <li style="color:white;padding:15px;">{{current_user.username}}</li>
-            <li ><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+            <li">{{current_user.username}}</li>
+            <li ><a  style="color:white;padding:15px;" href="{{url_for('auth.logout')}}">Log out</a></li>
             {% else %}
             <li><a style="color: white;" href="{{url_for('auth.login')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign in</a></li>
-            <li><a style="color: white;" class="dropdown-item" href="{{url_for('auth.logout')}}"><i class="fas fa-sign-out-alt"></i>&nbsp; Log out</a></li>
+            <li><a style="color: white;" href=""><i class="fa fa-sign-in" aria-hidden="true"></i>Call Us : 0722345678 </a></li>
+          
            
             {%endif%}
           </ul>
